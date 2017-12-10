@@ -15,6 +15,10 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {
   }
 
+  getAuthenticatedUser() {
+    return this.afAuth.authState;
+  }
+
   async signInWithEmailAndPassword(account: BeepAccount) {
     try {
       const result: LoginResponse = {
