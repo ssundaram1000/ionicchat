@@ -14,7 +14,6 @@ import {LoginResponse} from "../../models/login/login.response.interface";
   templateUrl: 'register-form.component.html'
 })
 export class RegisterFormComponent {
-
   text: string;
   account = {} as BeepAccount;
   @Output() registerStatus: EventEmitter<LoginResponse>;

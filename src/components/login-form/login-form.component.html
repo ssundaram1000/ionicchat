@@ -1,19 +1,30 @@
-<ion-card>
-  <ion-card-content>
-    <ion-item>
-      <ion-label floating>Email Address</ion-label>
-      <ion-input typeof="email" [(ngModel)]="account.email" ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input typeof="password" [(ngModel)]="account.password"></ion-input>
-    </ion-item>
-    <ion-row class="login-form__buttons">
-      <div>
-        <button ion-button small (click)="navigateToRegisterPage()" color="secondary" float>Register</button>
-        <button ion-button small float (click)="login()">Login</button>
-        <!--navigateToPage('TabsPage')-->
+<form #f="ngForm" novalidate>
+  <ion-card>
+    <!--<div padding>-->
+      <!--<pre>{{f.value | json}}</pre>-->
+    <!--</div>-->
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Email Address</ion-label>
+        <ion-input typeof="email" [(ngModel)]="account.email" name="email" ngModel required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"></ion-input>
+      </ion-item>
+      <div padding *ngIf="f.form.controls.email?.dirty && f.form.controls.email?.invalid">
+        <span class="global__input-error">eMail address is invalid</span>
       </div>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input typeof="password" [(ngModel)]="account.password" name="password" #password="ngModel" required pattern="[a-zA-Z0-9!@#$%^&*]{6,20}$"></ion-input>
+      </ion-item>
+      <div padding *ngIf="f.form.controls.password?.dirty && f.form.controls.password?.invalid">
+        <span class="global__input-error">Password must be at least 6 chars</span>
+      </div>
+      <ion-row class="login-form__buttons">
+        <div>
+          <button ion-button small (click)="navigateToRegisterPage()" color="secondary" float>Register</button>
+          <button ion-button small float (click)="login()" [disabled]="f.invalid">Login</button>
+          <!--navigateToPage('TabsPage')-->
+        </div>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</form>
