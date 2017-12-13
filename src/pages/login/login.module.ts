@@ -3,7 +3,6 @@ import { IonicPageModule } from 'ionic-angular';
 import { LoginPage } from './login';
 import {ComponentsModule} from "../../components/components.module";
 import {AngularFireAuthModule} from "angularfire2/auth";
-import {ProfileViewComponent} from "../../components/profile-view/profile-view.component";
 
 @NgModule({
   declarations: [

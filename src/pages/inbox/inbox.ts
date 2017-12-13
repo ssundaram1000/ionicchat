@@ -26,4 +26,11 @@ export class InboxPage {
     // console.log(this.messageList);
   }
 
+  navigateToSearchUserPage() {
+    this.navCtrl.push('SearchUserPage')
+      .then(response => {response => console.log('Response ' + response)},
+        error => console.log('Error ' + error))
+      .catch(exception => { console.log('Exception ' + exception)});
+  }
+
 }
