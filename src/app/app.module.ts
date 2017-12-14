@@ -14,6 +14,7 @@ import {DataService} from '../providers/data/data.service';
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireDatabase} from "angularfire2/database-deprecated";
 import {FormsModule} from "@angular/forms";
+import { ChatService } from '../providers/chat/chat.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {FormsModule} from "@angular/forms";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     DataService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    ChatService
   ]
 })
 export class AppModule {}
