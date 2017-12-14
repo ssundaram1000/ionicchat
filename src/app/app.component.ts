@@ -13,7 +13,7 @@ export class MyApp {
 
   constructor(private auth: AuthService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     this.auth.getAuthenticatedUser().subscribe(auth => {
-      !auth ? this.rootPage = 'LoginPage' : this.rootPage = 'TabsPage';
+      !auth ? this.rootPage = 'LoginPage' : this.rootPage = 'MessagePage';
     });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
