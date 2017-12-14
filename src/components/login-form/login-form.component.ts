@@ -17,7 +17,7 @@ import {AuthService} from "../../providers/auth/auth.service";
 export class LoginFormComponent {
 
   text: string;
-  account = {email: 'test10@gmail.com', password: 'test10'} as BeepAccount;
+  account = {} as BeepAccount;
   @Output() loginStatus: EventEmitter<LoginResponse>;
 
   constructor(private authService: AuthService, private navCtrl: NavController) {

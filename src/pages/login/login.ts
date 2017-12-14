@@ -18,7 +18,7 @@ import {User} from "firebase";
 })
 export class LoginPage {
 
-  constructor(private data: DataService, private toast: ToastController, private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private data: DataService, private toast: ToastController, private navCtrl: NavController) {
   }
 
   login(event: LoginResponse) {
@@ -28,6 +28,11 @@ export class LoginPage {
         duration: 3000
       }).present();
       this.data.getProfile(<User>event.result).subscribe(profile => {
+        if (profile.val())
+          console.log('Will go tabs');
+        else
+          console.log('Will go Edit');
+
         profile.val() ? this.navCtrl.setRoot('TabsPage') : this.navCtrl.setRoot('EditProfilePage');
       })
     } else {
