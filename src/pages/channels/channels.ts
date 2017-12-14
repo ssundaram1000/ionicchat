@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ChatService} from "../../providers/chat/chat.service";
-import {Observable} from "rxjs/Observable";
 import {Channel} from "../../models/channel/channel.interface";
+import {FirebaseListObservable} from "angularfire2/database-deprecated";
 
 /**
  * Generated class for the ChannelsPage page.
@@ -18,7 +18,7 @@ import {Channel} from "../../models/channel/channel.interface";
 })
 export class ChannelsPage {
 
-  channelList: Observable<Channel[]>;
+  channelList: FirebaseListObservable<Channel[]>;
 
   constructor(private chat: ChatService, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -53,5 +53,12 @@ export class ChannelsPage {
         }
       ]
     }).present();
+  }
+
+  selectChannel(channel: Channel) {
+    this.navCtrl.push('ChannelChatPage', { channel })
+      .then(response => {response => console.log('Response ' + response)},
+        error => console.log('Error ' + error))
+      .catch(exception => { console.log('Exception ' + exception)});
   }
 }
