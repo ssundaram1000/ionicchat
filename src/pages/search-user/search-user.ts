@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Profile} from "../../models/profile/profile.interface";
 
 /**
  * Generated class for the SearchUserPage page.
@@ -14,12 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search-user.html',
 })
 export class SearchUserPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchUserPage');
+  openChat(profile: Profile) {
+    this.navCtrl.push('MessagePage', {profile: profile})
+      .then(response => {response => console.log('Response ' + response)},
+        error => console.log('Error ' + error))
+      .catch(exception => { console.log('Exception ' + exception)});
   }
-
 }
