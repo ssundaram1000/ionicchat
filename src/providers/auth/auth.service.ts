@@ -52,4 +52,9 @@ export class AuthService {
       return error;
     }
   }
+
+  signOut() {
+    this.afAuth.auth.signOut();
+  }
+
 }
