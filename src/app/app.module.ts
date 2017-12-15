@@ -18,8 +18,7 @@ import { ChatService } from '../providers/chat/chat.service';
 
 @NgModule({
   declarations: [
-    MyApp,
-    InboxPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -31,8 +30,7 @@ import { ChatService } from '../providers/chat/chat.service';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    InboxPage
+    MyApp
   ],
   providers: [
     StatusBar,

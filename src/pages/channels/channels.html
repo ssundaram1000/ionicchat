@@ -18,6 +18,7 @@
 </ion-header>
 
 <ion-content padding>
+  <app-online-users></app-online-users>
   <ion-list>
     <!--I added the async pipe since the channelList is an observable-->
     <ion-item *ngFor="let channel of channelList | async" (click)="selectChannel(channel)">
